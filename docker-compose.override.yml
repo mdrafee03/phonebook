@@ -3,7 +3,6 @@ services:
   app:
     ports:
       - ${DOCKER_APP_PORT}:${APP_PORT}
-    command: ["npm", "start"]
   postgres_db:
     ports:
       - ${DOCKER_POSTGRES_PORT}:${POSTGRES_PORT}

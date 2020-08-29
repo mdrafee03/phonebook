@@ -14,7 +14,7 @@ WORKDIR /home/node/app
 COPY package*.json ./
 # install all the dependencies
 USER node
-
+ENV NODE_ENV=development
 RUN npm install
 #copy all your files under the working directory
 #start nodejs server
