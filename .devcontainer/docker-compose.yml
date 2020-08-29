@@ -1,0 +1,20 @@
+version: "3.5"
+services:
+  app:
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+      dockerfile: .devcontainer/Dockerfile
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - $HOME/.ssh:/home/node/.ssh
+      - $HOME/.zshrc:/home/node/.zshrc
+      - $HOME/.aliasrc:/home/node/.aliasrc
+      - $HOME/.oh-my-zsh:/home/node/.oh-my-zsh
+      - zsh_history:/home/node/.hist
+
+    command: /bin/sh -c "while sleep 1000; do :; done"
+volumes:
+  zsh_history:

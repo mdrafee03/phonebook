@@ -1,0 +1,34 @@
+version: "3.5"
+services:
+  app:
+    image: phonebook-back
+    container_name: phonbook-back
+    build:
+      context: .
+      args:
+        - NODE_ENV=${NODE_ENV}
+    volumes:
+      - ./:/home/node/app
+      - /home/node/app/node_modules
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - SERVICE_NAME=phonebook-back
+    networks:
+      - phonebook-back
+  postgres_db:
+    image: postgres:12
+    container_name: phonebook_postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+    networks:
+      - phonebook-back 
+networks:
+  phonebook-back:
+    driver: bridge
+
+volumes:
+  postgres_data:

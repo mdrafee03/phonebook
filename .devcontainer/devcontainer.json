@@ -1,0 +1,21 @@
+{
+  "name": "PhoneBook",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "../docker-compose.override.yml",
+    "docker-compose.yml"
+  ],
+  "service": "app",
+  "workspaceFolder": "/home/node/app",
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/zsh"
+  },
+  "extensions": [
+    "grapecity.gc-excelviewer",
+    "mikestead.dotenv",
+    "redhat.vscode-yaml",
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "esbenp.prettier-vscode"
+  ]
+}
